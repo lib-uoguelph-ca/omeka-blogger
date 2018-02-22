@@ -30,10 +30,11 @@
 
         <?php endforeach; ?>
 
-        <?php if($more): ?>
-            <a href="<?php echo getFeedLink($posts); ?>">More</a>
-        <?php endif; ?>
 
     </ul>
+
+    <?php if($more): ?>
+        <div class="more-wrapper"><a class="more" href="<?php echo getFeedLink($posts); ?>">More</a></div>
+    <?php endif; ?>
 </div>
 
