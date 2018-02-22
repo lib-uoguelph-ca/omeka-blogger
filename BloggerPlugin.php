@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__) . '/functions.php';
+
 /**
  * The UG PDF Index plugin.
  */
@@ -20,9 +22,9 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
             return;
         }
         
-        $channel = array();
+        $feed = array();
         try {
-            $channel = new Zend_Feed_Rss($args['url']);
+            $feed = new Zend_Feed_Rss($args['url']);
         }
         catch(Exception $e) {
         
@@ -32,8 +34,18 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
         if(isset($args['limit'])) {
             $limit = (int)$args['limit'];
         }
-        
-        $html = $view->partial('blog.php', array('posts' => $channel, 'limit' => $limit ));
+
+        $links = FALSE;
+        if(isset($args['links'])) {
+            $links = (bool)$args['links'];
+        }
+
+        $more = FALSE;
+        if(isset($args['more'])) {
+            $more = (bool)$args['more'];
+        }
+
+        $html = $view->partial('blog.php', array('posts' => $feed, 'limit' => $limit, 'links' => $links, 'more' => $more));
         return $html;
     }
 
