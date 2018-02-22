@@ -9,7 +9,17 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
 {
     
     protected $_hooks = array(
+        'public_head',
+        'admin_head',
     );
+
+    public function hookPublicHead($args) {
+        queue_css_file('blogger');
+    }
+
+    public function hookAdminHead($args) {
+        queue_css_file('blogger');
+    }
 
     public function setUp() {
         add_shortcode('blog', array('BloggerPlugin', 'renderBlog'));

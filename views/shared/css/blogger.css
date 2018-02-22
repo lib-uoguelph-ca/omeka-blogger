@@ -1,0 +1,19 @@
+.blogger ul.posts {
+    padding-left: 0px;
+}
+
+.blogger .post {
+    list-style: none;
+}
+
+.blogger .post {
+    font-size: large;
+}
+
+.blogger .post:not(:first-of-type) {
+    margin-top: 1em;
+}
+
+.blogger .post:not(:last-of-type) {
+    border-bottom: 1px solid #CCC;
+}
