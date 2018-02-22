@@ -16,11 +16,15 @@
                         <?php echo $post->title();?>
                     </a>
 
-                    <div class="body"><?php echo $post->content; ?></div>
+                    <div class="body">
+                        <?php echo getFeedItemBody($post, $display); ?>
+                    </div>
                     </span>
                 <?php else: ?>
                     <div class="title"><?php echo $post->title();?></div>
-                    <div class="body"><?php echo $post->content; ?></div>
+                    <div class="body">
+                        <?php echo getFeedItemBody($post, $display); ?>
+                    </div>
                 <?php endif; ?>
             </li>
 

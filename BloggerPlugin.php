@@ -30,6 +30,11 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
         
         }
 
+        $display = "long";
+        if(isset($args['display'])) {
+            $display = $args['display'] == "short" ? "short" : "long";
+        }
+
         $limit = 0;
         if(isset($args['limit'])) {
             $limit = (int)$args['limit'];
@@ -45,7 +50,7 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
             $more = (bool)$args['more'];
         }
 
-        $html = $view->partial('blog.php', array('posts' => $feed, 'limit' => $limit, 'links' => $links, 'more' => $more));
+        $html = $view->partial('blog.php', array('posts' => $feed, 'display' => $display, 'limit' => $limit, 'links' => $links, 'more' => $more));
         return $html;
     }
 
