@@ -17,3 +17,16 @@
 .blogger .post:not(:last-of-type) {
     border-bottom: 1px solid #CCC;
 }
+
+.blogger .more-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.blogger a.more {
+    padding: 1em;
+    border-radius: 2px;
+    background-color: #990000;
+    color: white;
+}

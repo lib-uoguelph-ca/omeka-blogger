@@ -63,7 +63,5 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
         $html = $view->partial('blog.php', array('posts' => $feed, 'display' => $display, 'limit' => $limit, 'links' => $links, 'more' => $more));
         return $html;
     }
-
-
    
 }
