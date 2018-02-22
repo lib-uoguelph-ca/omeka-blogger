@@ -15,11 +15,26 @@ class BloggerPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     public function renderBlog($args, $view) {
-        $channel = new Zend_Feed_Rss('https://uglib.wordpress.com/feed');
 
-        foreach($channel as $item) {
-            echo $item->title() . "\n";
+        if (!isset($args['url'])) {
+            return;
         }
+        
+        $channel = array();
+        try {
+            $channel = new Zend_Feed_Rss($args['url']);
+        }
+        catch(Exception $e) {
+        
+        }
+
+        $limit = 0;
+        if(isset($args['limit'])) {
+            $limit = (int)$args['limit'];
+        }
+        
+        $html = $view->partial('blog.php', array('posts' => $channel, 'limit' => $limit ));
+        return $html;
     }
 
 
