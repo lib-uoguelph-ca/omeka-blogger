@@ -61,6 +61,6 @@ list.
 
 For example:
 
-`[blog url=http://example.com/blog links=true]`
+`[blog url=http://example.com/blog more=true]`
 
 **Default Value:** false if not specified.
